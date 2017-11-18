@@ -1,0 +1,12 @@
+[package]
+name = "haus"
+description = "Here Another URL Shortener"
+version = "0.1.0"
+authors = ["Adit Cahya Ramadhan <matematika.adit@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/matematikaadit/haus"
+
+[dependencies]
+rocket = "0.3.3"
+rocket_codegen = "0.3.3"
