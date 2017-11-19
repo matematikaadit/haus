@@ -3,9 +3,13 @@
 
 extern crate rocket;
 
+use std::io;
+
+use rocket::response::NamedFile;
+
 #[get("/")]
-fn index() -> &'static str {
-    "Hello, Shortener!"
+fn index() -> io::Result<NamedFile> {
+    NamedFile::open("static/index.html")
 }
 
 fn main() {

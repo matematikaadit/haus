@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>HAUS - Here Another URL Shortener</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="//writ.cmcenroe.me/1.0.4/writ.min.css">
+
+<header>
+  <h1>HAUS</h1>
+  <p>Here Another URL Shortener</p>
+  <nav>
+    <ul>
+      <li><a href="https://github.com/matematikaadit/haus">Github</a></li>
+      <li><a href="https://github.com/matematikaadit/haus/issues">Issues</a></li>
+      <li><a href="https://github.com/matematikaadit/haus/pulls">Pull Request</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h2>Usage</h2>
+  <p><b>GET /</b><br>
+    Shows this homepage.<br></p>
+
+  <p><b>GET /&lt;id&gt;</b><br>
+    Get url associated with the <b>&lt;id&gt;</b>.</p>
+
+  <p><b>POST /</b>&nbsp;&nbsp;&nbsp;PARAM: <b>url=&lt;url&gt;</b><br>
+    Create random <b>id</b> and assign <b>&lt;url&gt;</b> to it.</p>
+
+  <p><b>POST /&lt;id&gt;</b>&nbsp;&nbsp;&nbsp; PARAM: <b>url=&lt;url&gt;</b><br>
+    Create <b>&lt;id&gt;</b> and assign <b>&lt;url&gt;</b> to it.</p>
+
+  <h3>Note:</h3>
+  <p><b>&lt;id&gt;</b> can only contains lowercase alphanumeric character (<kbd>[a-z0-9]</kbd>), dash (<kbd>-</kbd>), or underscore (<kbd>_</kbd>).</p>
+</main>
