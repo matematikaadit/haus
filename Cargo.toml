@@ -8,6 +8,7 @@ readme = "README.md"
 repository = "https://github.com/matematikaadit/haus"
 
 [dependencies]
+rand = "0.3"
 rocket = "0.3.3"
 rocket_codegen = "0.3.3"
 rusqlite = { version = "0.13", features = ["bundled"] }
