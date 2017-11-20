@@ -1,5 +1,6 @@
 use std::fmt;
 use std::borrow::Cow;
+use std::convert::AsRef;
 
 use rocket::request::FromParam;
 use rocket::http::RawStr;
@@ -10,6 +11,18 @@ const BASE36: &[u8] = b"0123456789abcdefghijklmnopqrstuvwxyz";
 
 /// A _probably_ unique paste ID.
 pub struct Id<'a>(Cow<'a, str>);
+
+impl<'a> AsRef<str> for Id<'a> {
+    fn as_ref(&self) -> &str {
+        self.0.as_ref()
+    }
+}
+
+impl<'a> fmt::Display for Id<'a> {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "{}", self.0)
+    }
+}
 
 impl<'a> Id<'a> {
     /// Generate a _probably_ unique ID with `size` characters.
@@ -24,12 +37,6 @@ impl<'a> Id<'a> {
         }
 
         Id(Cow::Owned(id))
-    }
-}
-
-impl<'a> fmt::Display for Id<'a> {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "{}", self.0)
     }
 }
 

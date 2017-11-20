@@ -3,3 +3,5 @@
 
 # ignore the database file
 *.db
+
+Rocket.toml

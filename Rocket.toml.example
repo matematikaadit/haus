@@ -1,0 +1,10 @@
+# change display_address according to your environment
+
+[development]
+display_address = "http://localhost:8000"
+
+[staging]
+display_address = "http://localhost:8000"
+
+[production]
+display_address = "http://localhost:8000"
