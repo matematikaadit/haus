@@ -10,3 +10,4 @@ repository = "https://github.com/matematikaadit/haus"
 [dependencies]
 rocket = "0.3.3"
 rocket_codegen = "0.3.3"
+rusqlite = { version = "0.13", features = ["bundled"] }

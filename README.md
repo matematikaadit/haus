@@ -1,8 +1,8 @@
-# HAUS
+# Haus
 
 Here Another URL Shortener
 
-# INSTALL
+# Install
 
 I assume you already have [rust](https://www.rust-lang.org/) and [rustup](https://rustup.rs/) installed. This project is using rocket with nightly rust, so set
 it accordingly.
@@ -21,7 +21,17 @@ cargo run
 
 Now you can use the URL Shortener from http://localhost:8000/
 
-# LICENSE
+# Initialize the Database
+
+Exit previous `cargo run` command. To create the sqlite database, execute:
+
+```
+sqlite3 database_name.db '.read schema.sql'
+```
+
+Make sure that you have `sqlite3` installed.
+
+# License
 
 MIT License
 
