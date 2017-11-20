@@ -12,7 +12,7 @@ use std::sync::Mutex;
 mod id;
 
 use id::Id;
-use rocket::State;
+use rocket::{State, Request};
 use rocket::response::{Redirect, NamedFile};
 use rusqlite::{Connection};
 
@@ -37,12 +37,18 @@ fn index() -> io::Result<NamedFile> {
 }
 
 #[get("/<id>")]
-fn retrieve(id: Id, db: State<Db>) -> rusqlite::Result<Redirect> {
+fn retrieve(id: Id, db: State<Db>) -> Option<Redirect> {
     db.lock()
         .expect("db connection lock")
         .query_row("SELECT url FROM urls WHERE id = ?1",
                    &[&format!("{}", id)], |row| row.get(0))
         .map(|url: String| Redirect::found(&url))
+        .ok()
+}
+
+#[error(404)]
+fn not_found(req: &Request) -> String {
+    format!("No url found for {}", req.uri())
 }
 
 fn main() {
@@ -59,5 +65,7 @@ fn main() {
 
     rocket::ignite()
         .manage(Mutex::new(conn))
-        .mount("/", routes![index, retrieve]).launch();
+        .mount("/", routes![index, retrieve])
+        .catch(errors![not_found])
+        .launch();
 }
