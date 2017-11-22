@@ -1,10 +1,22 @@
+[global]
 # change display_address according to your environment
+# it's used for Location http header reply in short url creation
+# write here to set it globally
+display_address = "http://localhost:8000"
+
+# default length for new random ID
+id_length = 5
 
 [development]
 display_address = "http://localhost:8000"
 
+# sqlite3 database file
+db_file = "haus_dev.db"
+
 [staging]
 display_address = "http://localhost:8000"
+db_file = "haus_stage.db"
 
 [production]
 display_address = "http://localhost:8000"
+db_file = "haus_prod.db"
